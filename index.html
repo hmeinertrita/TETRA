@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="trig.css">
+    <script src="https://unpkg.com/mathjs@9.4.4/lib/browser/math.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <input type="file" class="button" id="file-input" style="display: none;"></input>
+    <label id="upload-button" for="file-input" class="button" style="--colour: #FF335C;">
+        <span>UPLOAD</span>
+        <div class="tetrahedron" id="upload-tetra" style="--size: 72; --width: 4;">
+            <div class="line edge-v1-v2" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v3" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v3" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v3-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+        </div>
+    </label>
+        
+    
+    <button id="play-button" class="button" style="--colour: #FF335C;">
+        <span id="button-text">PLAY</span>
+        <div class="tetrahedron" id="play-tetra" style="--size: 72; --width: 4;">
+            <div class="line edge-v1-v2" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v3" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v3" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v3-v4" id="line">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+        </div>
+    </button>
+    <audio id="default-music" src="music.mp3" type="audio/mpeg"></audio>
+
+    <div id="origin">
+        <div class="tetrahedron" id="visualizer" style="--size: 100; --v1-mult: 1; --v2-mult: 1; --v3-mult: 1; --v4-mult: 1; --colour: #FF335C;">
+            <div class="line edge-v1-v2" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v3" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v1-v4" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v3" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v2-v4" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+            <div class="line edge-v3-v4" id="line" style="--width:10;">
+                <div class="rotation arccos sqrt"><div class="segment"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+                <div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div>
+                <div class="end"><div class="cap"><div class="rot"><div class="rot"><div class="rot"></div></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

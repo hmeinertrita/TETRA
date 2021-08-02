@@ -1,0 +1,22 @@
+/* Source: https://codepen.io/SkyaTura/pen/OvOpad?editors=0110 */
+
+/* DOES WORK, DO NOT USE */
+/* Seems to be a limit to the amount of nested calc() calls before CSS just */
+/* gives up. So combining them with the trig functions in trig.css causes   */
+/* the whole thing to fail. Therefore, a JS alternative is used for sqrt    */
+/* until the native CSS trig functions are implemented by browsers.         */
+
+.sqrt {
+    /* Calculate the aproximated Square Root of a Number */
+    --sqrt-xD: var(--sqrt-x);
+    --sqrt-guess01: calc((var(--sqrt-xD) + 1) / 2);
+    --sqrt-guess02: calc((var(--sqrt-guess01) + ( var(--sqrt-xD) / var(--sqrt-guess01))) / 2);
+    --sqrt-guess03: calc((var(--sqrt-guess02) + ( var(--sqrt-xD) / var(--sqrt-guess02))) / 2);
+    --sqrt-guess04: calc((var(--sqrt-guess03) + ( var(--sqrt-xD) / var(--sqrt-guess03))) / 2);
+    --sqrt-guess05: calc((var(--sqrt-guess04) + ( var(--sqrt-xD) / var(--sqrt-guess04))) / 2);
+    --sqrt-guess06: calc((var(--sqrt-guess05) + ( var(--sqrt-xD) / var(--sqrt-guess05))) / 2);
+    --sqrt-guess07: calc((var(--sqrt-guess06) + ( var(--sqrt-xD) / var(--sqrt-guess06))) / 2);
+    --sqrt-guess08: calc((var(--sqrt-guess07) + ( var(--sqrt-xD) / var(--sqrt-guess07))) / 2);
+    --sqrt-guess09: calc((var(--sqrt-guess08) + ( var(--sqrt-xD) / var(--sqrt-guess08))) / 2);
+    --sqrt: var(--sqrt-guess09);
+}
