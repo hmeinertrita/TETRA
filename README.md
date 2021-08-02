@@ -13,8 +13,8 @@ Resources:
 * [Trigonometry in CSS by stereokai](https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97)
 * [CSS Square Root (CSS Only) by Skya Tura](https://codepen.io/SkyaTura/pen/OvOpad)
 * Power Series Expansions of Inverse Trigonometric Functions by ProofWiki
-** [Arcsine](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arcsine_Function)
-** [Arccosine](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arccosine_Function)
-** [Arctangent](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arctangent_Function)
+  * [Arcsine](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arcsine_Function)
+  * [Arccosine](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arccosine_Function)
+  * [Arctangent](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arctangent_Function)
 
 \*Square roots, necessary for the geometric math, *can* be approximated to a sufficient degree with CSS. However, CSS seems to have a limit on the number of nested calc() calls that makes such approximation unusable. See comments in [this file]() for more.
