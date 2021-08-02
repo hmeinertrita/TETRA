@@ -9,6 +9,7 @@ body {
     border: 0;
     padding: 0;
     background-color: #17183B;
+    overflow: hidden;
 }
 
 #origin {
@@ -20,6 +21,19 @@ body {
     animation: origin-rotate 60s ease-in-out infinite;
 }
 
+/* LINE CLASS */
+/* Draws a line in 3D space from(x1, y1, z1) to (x2, y2, z2)        */
+/* Specify coordinates with the following unitless CSS variables:   */
+/* --x1                                                             */
+/* --y1                                                             */
+/* --z1                                                             */
+/* --x2                                                             */
+/* --y2                                                             */
+/* --z2                                                             */
+/* Specify line width and colour with the following CSS variables:  */
+/* --width                                                          */
+/* --colour                                                         */
+
 .line {
     transform-style: preserve-3d;
     position: absolute;
@@ -28,12 +42,14 @@ body {
     --delta-x: calc(var(--x2) - var(--x1));
     --delta-y: calc(var(--y2) - var(--y1));
     --delta-z: calc(var(--z2) - var(--z1));
-
+ 
+    /* Translate one end of line to (x1, y1, z1) */
     --pos-x: calc(var(--x1) * 1px);
     --pos-y: calc(var(--y1) * 1px);
     --pos-z: calc(var(--z1) * 1px);
     transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z));
 
+    /* Use vector math to rotate line so that line is pointing towards (x2, y2, z2) */
     .rotation {
         transform-style: preserve-3d;
         position: absolute;
@@ -53,6 +69,7 @@ body {
         transform: rotate3d(var(--axis-x), var(--axis-y), var(--axis-z), var(--angle));
     }
 
+    /* Translate other end of line to (x2, y2, z2) */
     .end {
         --pos-x: calc(var(--delta-x) * 1px);
         --pos-y: calc(var(--delta-y) * 1px);
@@ -60,6 +77,8 @@ body {
         transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z));
     }
 
+
+    /* Approximate 3D lines by rendering intersecting "postcards", at different angles */
     .segment {
         transform-style: preserve-3d;
         position: absolute;
@@ -87,6 +106,7 @@ body {
     }
 }
 
+/* Approximate 3D lines by rendering intersecting "postcards", at different angles */
 .rot {
     transform-style: preserve-3d;
     position: absolute;
@@ -100,6 +120,9 @@ body {
 
     transform: rotateY(45deg);
 }
+
+/* TETRAHEDRON CLASS */
+/* Set all the variables for the different vertices and edges of the tetrahedron */
 
 .tetrahedron {
     transform-style: preserve-3d;
@@ -164,6 +187,8 @@ body {
     }
 }
 
+/* Button Styling */
+
 .button {
     position: absolute;
     top: 50%;
@@ -215,6 +240,10 @@ body {
         transition: transform 20s, left 4s;
         transform: rotateX(2.25turn) rotateY(2.5turn) rotateZ(2.25turn);
     }
+
+    @media all and (max-width: 950px) {
+        display: none;
+    }
 }
 
 #play-button {
@@ -239,6 +268,24 @@ body {
         &:hover #play-tetra {
             transition: transform 20s, left 4s;
             transform: rotateX(2turn) rotateY(2turn) rotateZ(2.125turn);
+        }
+    }
+
+    @media all and (max-width: 950px) {
+        left: 50%;
+        top: 85%;
+
+        @media all and (max-height: 800px) {
+            #play-tetra {
+                display: none;
+            }
+            span {
+                display: none;
+            }
+
+            top: 50%;
+            width: 100%;
+            height: 100%;
         }
     }
 }
