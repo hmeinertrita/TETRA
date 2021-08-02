@@ -1,3 +1,8 @@
+// JS alternative for calculating sqrt via CSS calc().
+// Once pure CSS trig functions are implemented, this 
+// should be uneccessary, meaning all geometry would be
+// pure CSS. See `sqrt.css` for more detail.
+
 function handleSqrt() {
     const nodes = document.getElementsByClassName('sqrt')
     for (var i = 0; i < nodes.length; i++) {
@@ -8,6 +13,8 @@ function handleSqrt() {
     }
 }
 
+
+// Variables for processing audio via Audio API
 var audioElement
 var contextClass
 var audioContext
@@ -17,12 +24,14 @@ var analyzer
 var player
 var playing = false
 const frequencyData = new Uint8Array(1024)
+
+// Variables for cleaning audio data
 var means = [[], [], [], []]
 var multipliers = [1, 1, 1, 1]
 const smoothingSpeed = 0.08
 
+// Main animation loop
 function update() {
-    //constantly getting feedback from data
     window.requestAnimationFrame(update)
 
     if (playing) {
@@ -33,6 +42,7 @@ function update() {
 
         var multiplier
 
+        //Clean audio data
         if (playing && !player.paused) {
             const range = 128
             const gap = 0
@@ -59,13 +69,16 @@ function update() {
         multipliers[i] += (multipliers[i] < multiplier ? 1 : -1) * (Math.abs(multipliers[i] - multiplier) < smoothingSpeed ? 0 : smoothingSpeed);
         multipliers[i] = Math.max(multipliers[i] == NaN ? 1 : multipliers[i], 0)
 
+        // Pass cleaned audio data to CSS as a simple multiplier
         const visualizer = document.getElementById('visualizer')
         visualizer.style.setProperty('--v' + (i + 1) + '-mult', multipliers[i])
+        // Calculate CSS sqrts
         handleSqrt()
     }
 }
 
 window.onload = () => {
+    // Calculate CSS sqrts
     handleSqrt()
 
     contextClass = (window.AudioContext || window.webkitAudioContext)
@@ -73,6 +86,7 @@ window.onload = () => {
     const playButton = document.getElementById('play-button')
     const buttonText = document.getElementById('button-text')
 
+    //Replaces default music with uploaded music
     document.getElementById('file-input').onchange = e => {
         audioElement = new Audio()
         audioElement.src = URL.createObjectURL(e.target.files[0])
@@ -85,7 +99,7 @@ window.onload = () => {
     
 
     playButton.onclick = () => {
-
+        //If music has started and has bee
         if (player.paused && playing) {
             player.play()
             buttonText.textContent = 'PAUSE'

@@ -2,7 +2,7 @@
 
 /* DOES WORK, DO NOT USE */
 /* Seems to be a limit to the amount of nested calc() calls before CSS just */
-/* gives up. So combining them with the trig functions in trig.css causes   */
+/* gives up. So combining them with the trig functions in `trig.css` causes */
 /* the whole thing to fail. Therefore, a JS alternative is used for sqrt    */
 /* until the native CSS trig functions are implemented by browsers.         */
 
