@@ -18,3 +18,7 @@ Resources:
   * [Arctangent](https://proofwiki.org/wiki/Power_Series_Expansion_for_Real_Arctangent_Function)
 
 \*Square roots, necessary for the geometric math, *can* be approximated to a sufficient degree with CSS. However, CSS seems to have a limit on the number of nested calc() calls that makes such approximation unusable. See comments in [this file](https://github.com/hmeinertrita/TETRA/blob/main/sqrt.css) for more.
+
+### Music Credit
+
+[enoki village](https://leyawn.bandcamp.com/track/enoki-village) by [leon chang](https://leyawn.bandcamp.com/)
