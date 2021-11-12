@@ -1,7 +1,7 @@
 # TETRA
 An audio visualizer created in 2021 that uses the Web Audio API to create a visualizer from a 3D CSS tetrahedron.
 
-[View Demo]()
+[View Demo](https://hmeinertrita.github.io/TETRA/)
 
 The distance of each of the vertices from the centroid changes dynamically in based on the audio. The dynamic changes to the geometry are implemented purely* in CSS. The audio data is passed in via CSS variables and the CSS performs the neccessary math to reconfigure the tetrahedron in 3D space.
 
